@@ -1,0 +1,47 @@
+{
+  "name": "simplevideomanualtheme",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve --mode user-serve",
+    "build": "npm run build:user; npm run build:admin;",
+    "lintfix": "vue-cli-service lint ./src",
+    "build:user": "vue-cli-service build --mode user; node copy-wp.js --mode user; vue-cli-service build --mode user-static; node copy-wp.js --mode user-static;",
+    "build:user:static": "vue-cli-service build --mode user-static; node copy-wp.js --mode user-static;",
+    "build:admin": "vue-cli-service build --mode admin; node copy-wp.js --mode admin;"
+  },
+  "dependencies": {
+    "@vue/cli-plugin-babel": "^3.0.3",
+    "@vue/cli-plugin-eslint": "^3.0.3",
+    "@vue/cli-service": "^3.0.3",
+    "dotenv": "^6.1.0",
+    "jquery": "^3.3.1",
+    "lodash-es": "^4.17.11",
+    "material-design-icons": "^3.0.1",
+    "node-sass": "^4.9.3",
+    "normalize.css": "^8.0.0",
+    "sass-loader": "^7.1.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.1",
+    "vee-validate": "^2.1.0-beta.9",
+    "vue": "^2.5.17",
+    "vue-cli-plugin-vuetify": "^0.4.5",
+    "vue-i18n": "^8.1.0",
+    "vue-router": "^3.0.1",
+    "vue-template-compiler": "^2.5.17",
+    "vuetify": "^1.3.0",
+    "vuetify-loader": "^1.0.5",
+    "vuex": "^3.0.1"
+  },
+  "devDependencies": {},
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
+}

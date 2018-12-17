@@ -1,0 +1,3 @@
+admin/export/*
+admin/tmp/*
+*.pot

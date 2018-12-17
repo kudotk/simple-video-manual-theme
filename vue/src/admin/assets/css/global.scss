@@ -1,0 +1,13 @@
+// hide export manual page sub menu
+#adminmenu {
+  a[href*="page=svm-export-static-page-files"] {
+    display: none;
+  }
+}
+
+// hide customize button in Themes page.
+a[href*="simplevideomanual"] {
+  display: none !important;
+}
+
+// 
