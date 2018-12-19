@@ -30,7 +30,7 @@ WordPress 5.0 or above
 
 ## How to use
 
-See here.
+See [here](https://svm.kudotk.com/docs)
 
 # Issues
 

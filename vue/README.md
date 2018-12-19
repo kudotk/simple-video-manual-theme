@@ -34,7 +34,7 @@ Sources of each view are separated.
 
 Sources build pages that shows descriptions and videos.
 
-# Admin Project
+# src/admin
 
 Sources build blocks in WordPress administrator pages.
 
