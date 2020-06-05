@@ -1,0 +1,220 @@
+doctype html
+html(
+amp
+lang="en"
+"[aria-disabled]"="(menuExpanded == 'expanded') ? 'true' : 'false'")
+  head(prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/websaite#")
+    
+    //- site specific
+    meta(charset="utf-8")
+    title Simple Video Manual Theme
+    meta(name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1")
+    meta(
+    property="description"
+    content='"Simple Video Manual Theme" helps you create a website instead of manual papers.'
+    + ' The site includes videos that explain how you do something.'
+    )
+    link(rel="canonical" href="https://svm.takakd.com")
+    //- ogp
+    meta(property="og:site_name" content="Simple Video Manual Theme")
+    meta(
+    property="og:description"
+    content='"Simple Video Manual Theme" helps you create a website instead of manual papers.'
+    + ' The site includes videos that explain how you do something.'
+    + ' Please, try this. And give feedback.'
+    )
+    meta(property="og:type" content="website")
+    meta(property="og:url" content="https://svm.takakd.com")
+    meta(property="og:image" content="https://svm.takakd.com/assets/img/ogp.png")
+    meta(property="twitter:card", content="summary_large_image")
+    meta(property="twitter:site", content="@takakdtk")
+    meta(property="twitter:creator", content="@takakdtk")
+    meta(property="twitter:title", content="Simple Video Manual Theme")
+    meta(property="twitter:description", content='"Simple Video Manual Theme" helps you create a website instead of manual papers.'
+    + ' The site includes videos that explain how you do something.'
+    + ' Please, try this. And give feedback.'
+    )
+    meta(property="twitter:image", content="https://svm.takakd.com/assets/img/ogp.png")
+    
+    //- site specific
+    link(rel="icon" href="/assets/img/favicon.ico")
+    link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500")
+    
+    //- AMP
+    script(async src="https://cdn.ampproject.org/v0.js")
+    script(async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js")
+    script(async custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js")
+    script(async custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js")
+    style(amp-custom)
+      | @@include('css/app.css')
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+    //- UA
+    script(async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js")
+  body
+    //- UA
+    amp-analytics(type="googleanalytics" id="analytics1" config="./analytics.json" data-credentials="include")
+    .
+      <amp-state id="appData">
+      <script type="application/json">
+      {
+      "menuExpanded": "init"
+      }
+      </script>
+      </amp-state>
+      <amp-animation id="headerFadeIn" layout="nodisplay">
+      <script type="application/json">
+      {
+      "selector": ".tp-Header, .tp-Header_Shadow",
+      "duration": ".15s",
+      "fill": "forwards",
+      "keyframes": "header-fadein"
+      }
+      </script>
+      </amp-animation>     
+      <amp-animation id="headerFadeOut" layout="nodisplay">
+      <script type="application/json">
+      {
+      "selector": ".tp-Header, .tp-Header_Shadow",
+      "duration": ".15s",
+      "fill": "forwards",
+      "keyframes": "header-fadeout"
+      }
+      </script>
+      </amp-animation>     
+
+    //- header
+    header#st-header.tp-Header(
+    [class]="'tp-Header tp-Header-' + menuExpanded"
+    )
+      .tp-Header_Mobile(aria-hidden="false")
+        button.tp-Header_MobileButton#st-header-mobile-menubutton.ua-Menu(
+        [class]="'tp-Header_MobileButton tp-Header_MobileButton-' + menuExpanded"
+        on="tap:AMP.setState({menuExpanded: (menuExpanded == 'init') ? 'expanded' : (menuExpanded == 'expanded') ? 'unexpanded' : 'expanded'})")
+          include _includes/_menu_icon
+        div.tp-Header_Menu#st-header-menu(
+        [class]="'tp-Header_Menu tp-Header_Menu-' + menuExpanded"
+        )
+          ul.tp-Header_MenuList
+            li.tp-Header_MenuItem
+              a.tp-Header_MenuLink.ua-Menu_Feature(on="tap:AMP.setState({menuExpanded: false}),feature.scrollTo(duration=100, position=top)")
+                span Feature
+            li.tp-Header_MenuItem
+              a.tp-Header_MenuLink.ua-Menu_Gettheme(href="https://github.com/takakd/simple-video-manual-theme/releases/download/v1.0/simplevideomanual.zip")
+                span Get theme
+            li.tp-Header_MenuItem
+              a.tp-Header_MenuLink.ua-Menu_Seedocs(href="./docs")
+                span See docs
+            li.tp-Header_MenuItem
+              a.tp-Header_MenuLink.ua-Menu_Feedback(on="tap:AMP.setState({menuExpanded: false}),feedback.scrollTo(duration=100, position=top)")
+                span Feedback 
+
+        div.tp-Header_Title
+          amp-img(src="assets/img/logo.svg" alt="Simple Video Manual" layout="fixed" width=15 height=15)
+          h1.tp-Header_TitleText Simple Video Manual Theme
+      .tp-Header_Shadow(aria-hidden="true")
+
+    //- show menu when window is resized to mobile width.
+    .tp-Header_ShadowObserver
+      amp-position-observer(
+      intersection-ratios="1"
+      on="enter:headerFadeIn.start"
+      layout="nodisplay"
+      )
+    //- show and hide menu according to scrolling.
+    amp-position-observer(
+    intersection-ratios="1"
+    on="enter:headerFadeOut.start;exit:headerFadeIn.start"
+    layout="nodisplay"
+    target="tp-Hero_SubTitle"
+    )
+
+    //- content
+    article.tp-Content
+      //- hero
+      section.tp-Hero
+        div.tp-Hero_Title
+          amp-img.tp-Hero_Logo(
+          src="assets/img/logo.svg"
+          alt="Simple Video Manual Theme"
+          layout="fixed"
+          width=50
+          height=50)
+          span.tp-Hero_TitleText
+            | Simple 
+            br.tp-Hero_TitleBr
+            | Video Manual Theme
+        p#tp-Hero_SubTitle.tp-Hero_SubTitle create manuals easily
+        .tp-Hero_ButtonContent
+          a.tp-Hero_Gettheme.ua-Gettheme(href="https://github.com/takakd/simple-video-manual-theme/releases/download/v1.0/simplevideomanual.zip")
+            | Get theme
+          a.tp-Hero_Seedocs.ua-Seedocs(href="./docs")
+            | See docs
+
+        a#feature(aria-hidden="true")
+
+      //- feature
+      section.tp-Feature
+        h2.tp-Feature_Head Feature
+        div.tp-Feature_Content
+          div.tp-Feature_Text
+            h3.tp-Feature_Title Video
+            p.tp-Feature_Body
+              | Manual page included video can be created by WordPress post.
+          div.tp-Feature_Img
+            amp-img(
+            alt="Feature - Video"
+            layout="responsive"
+            width=1200 height=874
+            src="assets/img/feature_1.jpg")
+        div.tp-Feature_Content
+          div.tp-Feature_Img
+            amp-img(
+            alt="Feature - Search"
+            layout="responsive"
+            width=1200 height=760
+            src="assets/img/feature_2.jpg")
+          div.tp-Feature_Text
+            h3.tp-Feature_Title Search
+            p.tp-Feature_Body The pages are found easily by incremental search.
+        div.tp-Feature_Content
+          div.tp-Feature_Text
+            h3.tp-Feature_Title Export
+            p.tp-Feature_Body Export pages that can be shown on computer.
+          div.tp-Feature_Img
+            amp-img(
+            alt="Feature - Export"
+            layout="responsive"
+            width=1200 height=742
+            src="assets/img/feature_3.jpg")
+            
+        a#feedback(aria-hidden="true")
+    
+    //- feedback            
+    section.tp-Feedback
+      h3.tp-FeedbackTitle Feedback
+      p.tp-FeedbackText I'm happy if you try this theme and give feedback.
+      a.tp-FeedbackLink.ua-Feedback(href="https://github.com/takakd/simple-video-manual-theme/issues")
+        div.tp-FeedbackLinkContent
+          amp-img.tp-FeedbackLinkLogo(
+            alt="GitHub Issue"
+            layout="fixed"
+            width=18 height=18
+            src="assets/img/github.svg")        
+          span Issue
+   
+    //- footer
+    footer.st-Footer
+      div.st-Footer_Content
+        span.st-Footer_Copyright &copy; 2018 takakd
+        a.ua-Facebook(href="https://www.facebook.com/takakd/")
+          amp-img.st-Footer_LogoImg(
+            alt="facebook"
+            layout="fixed"
+          width=24 height=24
+            src="assets/img/facebook.svg")
+        a.ua-Linkedin(href="https://www.linkedin.com/in/takakd/")
+          amp-img(
+            alt="facebook"
+            layout="fixed"
+            width=31 height=24
+            src="assets/img/linkedin.png")                       

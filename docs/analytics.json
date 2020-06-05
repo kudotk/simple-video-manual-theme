@@ -1,0 +1,105 @@
+  {
+    "vars": {
+      "account": "UA-108607644-4"
+    },
+    "triggers": {
+      "trackPageview": {
+        "on": "visible",
+        "request": "pageview",
+        "vars": {
+          "title": "Top page"
+        }
+      },
+
+      "trackClickOnMenu": {
+        "on": "click",
+        "selector": ".ua-Menu",
+        "request": "event",
+        "vars": {
+          "eventCategory": "menu-openclose",
+          "eventAction": "click"
+        }
+      },
+      "trackClickOnMenuFeature": {
+        "on": "click",
+        "selector": ".ua-Menu_Feature",
+        "request": "event",
+        "vars": {
+          "eventCategory": "menu-feature",
+          "eventAction": "click"
+        }
+      },
+      "trackClickOnMenuGettheme": {
+        "on": "click",
+        "selector": ".ua-Menu_Getheme",
+        "request": "event",
+        "vars": {
+          "eventCategory": "menu-gettheme",
+          "eventAction": "click"
+        }
+      },
+      "trackClickOnMenuSeedocs": {
+        "on": "click",
+        "selector": ".ua-Menu_Seedocs",
+        "request": "event",
+        "vars": {
+          "eventCategory": "menu-seedocs",
+          "eventAction": "click"
+        }
+      },
+      "trackClickOnMenuFeedback": {
+        "on": "click",
+        "selector": ".ua-Menu_Feedback",
+        "request": "event",
+        "vars": {
+          "eventCategory": "menu-feedback",
+          "eventAction": "click"
+        }
+      },
+      "trackClickOnGettheme": {
+        "on": "click",
+        "selector": ".ua-Gettheme",
+        "request": "event",
+        "vars": {
+          "eventCategory": "link-gettheme",
+          "eventAction": "click"
+        }
+      },
+      "trackClickOnSeedocs": {
+        "on": "click",
+        "selector": ".ua-Seedocs",
+        "request": "event",
+        "vars": {
+          "eventCategory": "link-seedocs",
+          "eventAction": "click"
+        }
+      },
+      "trackClickOnFeedback": {
+        "on": "click",
+        "selector": ".ua-Feedback",
+        "request": "event",
+        "vars": {
+          "eventCategory": "link-feedback",
+          "eventAction": "click"
+        }
+      },
+      "trackClickOnFacebook": {
+        "on": "click",
+        "selector": ".ua-Facebook",
+        "request": "event",
+        "vars": {
+          "eventCategory": "link-facebook",
+          "eventAction": "click"
+        }
+      },
+      "trackClickOnLinkedin": {
+        "on": "click",
+        "selector": ".ua-Linkedin",
+        "request": "event",
+        "vars": {
+          "eventCategory": "link-linkedin",
+          "eventAction": "click"
+        }
+      }
+    }
+  }
